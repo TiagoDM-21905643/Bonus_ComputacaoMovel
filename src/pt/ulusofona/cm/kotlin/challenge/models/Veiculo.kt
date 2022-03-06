@@ -12,7 +12,7 @@ abstract class Veiculo (val identificador: String): Movimentavel {
     override fun moverPara(x: Int, y: Int) {
         if (x == posicao.x && y == posicao.y) { throw AlterarPosicaoException() }
         posicao.alterarPosicaoPara(x, y)
-    }  // TODO: moverPara(x: Int, y: Int)
+    }
 
     abstract fun requerCarta(): Boolean
 }
