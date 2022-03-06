@@ -38,7 +38,7 @@ class Pessoa(val nome: String, val dataDeNascimento: Date): Movimentavel {
     }
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
         val v = pesquisarVeiculo(identificador)
-        if (v.requerCarta() && !temCarta()) throw PessoaSemCartaException()
+        if (v.requerCarta() && !temCarta()) throw PessoaSemCartaException(nome)
         v.moverPara(x, y)
     }
     fun temCarta(): Boolean {
