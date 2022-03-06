@@ -12,8 +12,12 @@ class Pessoa(val nome: String, val dataDeNascimento: Date): Movimentavel {
     lateinit var carta: Carta
 
     private fun menorDeIdade(): Boolean {
-        return false
-    }  // TODO: menorDeIdade(): Boolean
+        val cal = Calendar.getInstance()
+        cal.time = dataDeNascimento
+        cal.add(Calendar.YEAR, 18)
+        val dataDeMaioridade = cal.time
+        return Date() < dataDeMaioridade
+    }
 
     fun comprarVeiculo(veiculo: Veiculo) {
         veiculos.add(veiculo)
