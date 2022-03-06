@@ -7,6 +7,6 @@ import java.time.format.DateTimeFormatter
 private val DATE_FORMATTER: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
 
 class VeiculoEscondido (identificador: String): Veiculo(identificador) {
-    override fun requerCarta(): Boolean = false  // TODO: Chec
+    override fun requerCarta(): Boolean = false  // TODO: Check
     override fun toString(): String = "VeiculoEscondido | $identificador | ${SimpleDateFormat("dd-MM-yyyy").format(dataDeAquisicao)} | Posicao | x:${posicao.x} | y:${posicao.y}"
 }
