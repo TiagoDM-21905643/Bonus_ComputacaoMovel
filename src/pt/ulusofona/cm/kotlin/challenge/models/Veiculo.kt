@@ -7,7 +7,7 @@ import java.util.*
 
 abstract class Veiculo (val identificador: String): Movimentavel {
     var posicao: Posicao = Posicao(0, 0)
-    lateinit var dataDeAquisicao: Date
+    var dataDeAquisicao: Date = Date()
 
     override fun moverPara(x: Int, y: Int) {
         if (x == posicao.x && y == posicao.y) { throw AlterarPosicaoException() }
