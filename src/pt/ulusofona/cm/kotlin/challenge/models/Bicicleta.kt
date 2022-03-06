@@ -1,12 +1,8 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-
-private val DATE_FORMATTER: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+import java.text.SimpleDateFormat
 
 class Bicicleta (identificador: String): Veiculo(identificador) {
     override fun requerCarta(): Boolean = false
-    override fun toString(): String = "Bicicleta | $identificador |" +
-            "${LocalDate.parse(dataDeAquisicao.toString(), DATE_FORMATTER)} | Posicao | x:${posicao.x} | y:${posicao.y}"
+    override fun toString(): String = "Bicicleta | $identificador | ${SimpleDateFormat("dd-MM-yyyy").format(dataDeAquisicao)} | Posicao | x:${posicao.x} | y:${posicao.y}"
 }

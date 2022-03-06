@@ -2,13 +2,9 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.*
 import pt.ulusofona.cm.kotlin.challenge.interfaces.*
+import java.text.SimpleDateFormat
 
-import java.time.Instant
-import java.time.LocalDate
 import java.util.*
-import java.time.format.DateTimeFormatter
-
-private val DATE_FORMATTER: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
 
 class Pessoa(val nome: String, val dataDeNascimento: Date): Movimentavel {
     var veiculos: MutableList<Veiculo> = mutableListOf()
@@ -33,7 +29,7 @@ class Pessoa(val nome: String, val dataDeNascimento: Date): Movimentavel {
     fun venderVeiculo(identificador: String, comprador: Pessoa) {
         val v = pesquisarVeiculo(identificador)
         veiculos.remove(v)
-        v.dataDeAquisicao = Date.from(Instant.now())  // TODO: CHECK LINE
+        v.dataDeAquisicao = Date()  // TODO: CHECK LINE
         comprador.comprarVeiculo(v)
     }
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
@@ -53,5 +49,5 @@ class Pessoa(val nome: String, val dataDeNascimento: Date): Movimentavel {
 
     }  // TODO: moverPara(x: Int, y: Int)
     override fun toString(): String = "Pessoa | $nome |" +
-            "${LocalDate.parse(dataDeNascimento.toString(), DATE_FORMATTER)} | Posicao | x:${posicao.x} | y:${posicao.y}"
+            "${SimpleDateFormat("dd-MM-yyyy").format(dataDeNascimento)} | Posicao | x:${posicao.x} | y:${posicao.y}"
 }
