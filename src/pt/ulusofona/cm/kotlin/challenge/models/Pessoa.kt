@@ -34,7 +34,7 @@ class Pessoa(val nome: String, val dataDeNascimento: Date): Movimentavel {
     }
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
         val v = pesquisarVeiculo(identificador)
-        if (v.requerCarta() && !temCarta()) throw MenorDeIdadeException()
+        if (v.requerCarta() && !temCarta()) throw PessoaSemCartaException()
         v.moverPara(x, y)
     }
     fun temCarta(): Boolean {
@@ -46,8 +46,8 @@ class Pessoa(val nome: String, val dataDeNascimento: Date): Movimentavel {
     }
 
     override fun moverPara(x: Int, y: Int) {
-
-    }  // TODO: moverPara(x: Int, y: Int)
-    override fun toString(): String = "Pessoa | $nome |" +
-            "${SimpleDateFormat("dd-MM-yyyy").format(dataDeNascimento)} | Posicao | x:${posicao.x} | y:${posicao.y}"
+        posicao.x = x
+        posicao.y = y
+    }
+    override fun toString(): String = "Pessoa | $nome | ${SimpleDateFormat("dd-MM-yyyy").format(dataDeNascimento)} | Posicao | x:${posicao.x} | y:${posicao.y}"
 }
