@@ -2,11 +2,11 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.*
 import pt.ulusofona.cm.kotlin.challenge.interfaces.*
-import pt.ulusofona.cm.kotlin.challenge.models.*
+import java.time.LocalDate
 import java.util.*
 
 abstract class Veiculo (val identificador: String): Movimentavel {
-    lateinit var posicao: Posicao
+    var posicao: Posicao = Posicao(0, 0)
     lateinit var dataDeAquisicao: Date
 
     override fun moverPara(x: Int, y: Int) {
