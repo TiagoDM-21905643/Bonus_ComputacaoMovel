@@ -9,5 +9,5 @@ class Carro (identificador: String, val motor: Motor): Veiculo(identificador) {
         motor.desligar()  // TODO : not necessary
     }
     override fun requerCarta(): Boolean = true
-    override fun toString(): String = "Carro | $identificador | ${SimpleDateFormat("dd-MM-yyyy").format(dataDeAquisicao)} | Posicao | x:${posicao.x} | y:${posicao.y}"
+    override fun toString(): String = "Carro | $identificador | ${SimpleDateFormat("dd-MM-yyyy").format(dataDeAquisicao)} | $posicao"
 }

@@ -53,5 +53,5 @@ class Pessoa(val nome: String, val dataDeNascimento: Date): Movimentavel {
         posicao.x = x
         posicao.y = y
     }
-    override fun toString(): String = "Pessoa | $nome | ${SimpleDateFormat("dd-MM-yyyy").format(dataDeNascimento)} | Posicao | x:${posicao.x} | y:${posicao.y}"
+    override fun toString(): String = "Pessoa | $nome | ${SimpleDateFormat("dd-MM-yyyy").format(dataDeNascimento)} | $posicao"
 }
